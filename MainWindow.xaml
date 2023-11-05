@@ -1,0 +1,52 @@
+﻿<Window x:Class="Country_Guesser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Country_Guesser"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" Background="#434C5E">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.12*"/>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Grid>
+                <Ellipse Width="50" Height="50" Fill="#A3BE8C" Grid.Row="0" Margin="0 0 20 0" StrokeThickness="3" Stroke="#ECEFF4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label x:Name="QuestionNumberLabel" Content="10" Grid.Row="0"  FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.995,0.578" Margin="3,2,0,0"/>
+            </Grid>
+
+
+            <Grid>
+                <Rectangle Width="650" Height="50" StrokeThickness="5" Stroke="#ECEFF4" Grid.Row="0" Grid.Column="0"
+                       Fill="#A3BE8C" RadiusX="10" RadiusY="10" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Content="Pogodi zemlju" Grid.Column="0" FontSize="30"
+                        Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            </Grid>
+        </StackPanel>
+
+        <Border CornerRadius="10" BorderThickness="5" BorderBrush="#ECEFF4" Margin="200 10" Grid.Row="1">
+            <StackPanel>
+                <Image x:Name="Image" Stretch="Fill"></Image>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="button1" Click="AnswerButton_Click" Width="150" Height="40" Margin="0 0 30 0" Background="#8FBCBB"/>
+                <Button x:Name="button2" Click="AnswerButton_Click" Width="150" Height="40" Margin="30 0 0 0" Background="#8FBCBB"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 0">
+                <Button x:Name="button3" Click="AnswerButton_Click" Width="150" Height="40" Margin="0 0 30 0"  Background="#8FBCBB"/>
+                <Button x:Name="button4" Click="AnswerButton_Click" Width="150" Height="40" Margin="30 0 0 0"  Background="#8FBCBB"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ProgressBar x:Name="progressBar" Grid.Row="3"  Width="600" Height="30"
+                     Background="#ECEFF4" Foreground="CadetBlue" Minimum="0" Maximum="100" Margin="0 0 0 10"/>
+    </Grid>
+</Window>
