@@ -36,11 +36,11 @@ namespace Country_Guesser
             else
             {
                 if (NormalRadioButton.IsChecked == true) {
-                    new MainWindow(UsernameTextBox.Text,"normal").Show();
+                    new MainWindow(UsernameTextBox.Text,"Normal").Show();
                     this.Close();
                 }
                 else if(HardRadioButton.IsChecked == true) {
-                    new MainWindow(UsernameTextBox.Text,"hard").Show();
+                    new MainWindow(UsernameTextBox.Text,"Hard").Show();
                     this.Close();
                 }
 

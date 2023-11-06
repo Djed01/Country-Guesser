@@ -33,20 +33,21 @@ namespace Country_Guesser
         private int totalScore = 0;
         private DispatcherTimer? timer;
         private int currentTimerValue;
-        private Picture? currentPicture;
-        private readonly List<Picture> pictures;
+        private Question? currentPicture;
+        private readonly List<Question> questions;
         public MainWindow(String username,String difficulty)
         {
             InitializeComponent();
-            pictures = Picture.LoadPictures();
-            LoadQuestion();
             this.username = username;
+            this.difficulty = difficulty;
+            questions = Question.LoadQuestions(difficulty);
+            LoadQuestion();
         }
 
         private void LoadQuestion()
         {
             StartTimer();
-            currentPicture = pictures[numOfQuestions];
+            currentPicture = questions[numOfQuestions];
             QuestionNumberLabel.Content = (numOfQuestions + 1).ToString();
 
             button1.Content = currentPicture.Option1;
@@ -88,7 +89,7 @@ namespace Country_Guesser
             if (currentTimerValue < 0)
             {
                 timer.Stop();
-                if (numOfQuestions == pictures.Count)
+                if (numOfQuestions == questions.Count)
                 {
                     button1.IsEnabled = false;
                     button2.IsEnabled = false;
@@ -96,7 +97,7 @@ namespace Country_Guesser
                     timer.Stop();
                     progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
                     // SaveResult();
-                    new ResultWindow(correctAnswers, username,totalScore).Show();
+                    new ResultWindow(correctAnswers, username,totalScore, difficulty).Show();
                 }
                 else
                 {
@@ -113,7 +114,7 @@ namespace Country_Guesser
             timer.Stop(); // Stop the timer
 
             // Check if the selected answer is correct
-            bool isCorrect = selectedAnswer.Trim() == currentPicture.Answer;
+            bool isCorrect = selectedAnswer == currentPicture.Answer;
 
             int timeRemaining = currentTimerValue; // Time remaining when the answer was given
             int timePenalty = 10 - (timeRemaining / 10); // Deduct points based on time taken
@@ -133,7 +134,7 @@ namespace Country_Guesser
                 foreach (Button button in new List<Button> { button1, button2, button3, button4 })
                 {
                     string buttonText = button.Content.ToString();
-                    if (buttonText.Trim() == currentPicture.Answer)
+                    if (buttonText == currentPicture.Answer)
                     {
                         button.Background = new SolidColorBrush(Color.FromRgb(163, 190, 140));
                     }
@@ -153,12 +154,12 @@ namespace Country_Guesser
                     {
                         button.Background = new SolidColorBrush(buttonColor);
                     }
-                    if (numOfQuestions == pictures.Count)
+                    if (numOfQuestions == questions.Count)
                     {
                         timer.Stop();
-                        progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
                         SaveResult();
-                        new ResultWindow(correctAnswers, username,totalScore).Show();
+                        progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
+                        new ResultWindow(correctAnswers, username,totalScore, difficulty).Show();
                         this.Close();
                     }
                     else
@@ -174,7 +175,15 @@ namespace Country_Guesser
 
         private void SaveResult()
         {
-            string filePath = "../../../Resources/results.txt"; // Path to the results file
+            string filePath;
+            if (difficulty == "Normal")
+            {
+                 filePath = "../../../Resources/resultsNormal.txt"; // Path to the results file
+            }
+            else
+            {
+                 filePath = "../../../Resources/resultsHard.txt"; // Path to the results file
+            }
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine(username + "#" + totalScore);

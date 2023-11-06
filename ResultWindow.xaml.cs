@@ -21,11 +21,11 @@ namespace Country_Guesser
     public partial class ResultWindow : Window
     {
         private string username;
-        public ResultWindow(int correctAnswers,String username,int totalScore)
+        public ResultWindow(int correctAnswers,String username,int totalScore,String difficulty)
         {
             this.username = username;
             InitializeComponent();
-            ResultsDataGrid.ItemsSource = Result.LoadResults();
+            ResultsDataGrid.ItemsSource = Result.LoadResults(difficulty);
             ScoreLabel.Content = "Vas skor je: " + totalScore;
             AnswrsLabel.Content = correctAnswers + "/10 Pitanja";
         }

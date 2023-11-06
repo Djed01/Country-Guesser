@@ -14,25 +14,27 @@
             <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <StackPanel>
             <Grid>
-                <Ellipse Width="50" Height="50" Fill="#A3BE8C" Grid.Row="0" Margin="0 0 20 0" StrokeThickness="3" Stroke="#ECEFF4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Label x:Name="QuestionNumberLabel" Content="10" Grid.Row="0"  FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.995,0.578" Margin="3,2,0,0"/>
+                    <Ellipse  Width="50" Height="50" Fill="#A3BE8C" Grid.Row="0"  StrokeThickness="3" Stroke="#ECEFF4" Margin="0 5 20 0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label x:Name="QuestionNumberLabel" Content="10" Grid.Row="0"  FontSize="30" Margin="0 5 20 0" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Grid>
+            </StackPanel>
 
-
-            <Grid>
-                <Rectangle Width="650" Height="50" StrokeThickness="5" Stroke="#ECEFF4" Grid.Row="0" Grid.Column="0"
-                       Fill="#A3BE8C" RadiusX="10" RadiusY="10" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <Label Content="Pogodi zemlju" Grid.Column="0" FontSize="30"
-                        Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" />
-            </Grid>
+            <StackPanel>
+                <Grid>
+                    <Rectangle Width="650" Height="50" StrokeThickness="5" Stroke="#ECEFF4" Grid.Row="0" Grid.Column="0" Margin="0 5 0 0"
+                Fill="#A3BE8C" RadiusX="10" RadiusY="10" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    <Label Content="Pogodi zemlju sa slike"  FontWeight="Bold" Foreground="#2E3440" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
+            </StackPanel>
         </StackPanel>
 
         <Border CornerRadius="10" BorderThickness="5" BorderBrush="#ECEFF4" Margin="200 10" Grid.Row="1">
-            <StackPanel>
-                <Image x:Name="Image" Stretch="Fill"></Image>
-            </StackPanel>
+            <Grid Background="White">
+                <Image x:Name="Image" MaxHeight="250" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+            </Grid>
         </Border>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">

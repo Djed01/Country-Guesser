@@ -22,14 +22,24 @@ namespace Country_Guesser.Model
         }
 
 
-        public static List<Result> LoadResults()
+        public static List<Result> LoadResults(String difficulty)
         {
             List<Result> results = new();
             try
             {
+                StreamReader streamReader;
                 var projectFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-                var file = Path.Combine(projectFolder, @"resources\results.txt");
-                StreamReader streamReader = new StreamReader(file);
+                if (difficulty == "Normal")
+                {
+                    var file = Path.Combine(projectFolder, @"resources\resultsNormal.txt");
+                     streamReader = new StreamReader(file);
+                }
+                else
+                {
+                    var file = Path.Combine(projectFolder, @"resources\resultsHard.txt");
+                     streamReader = new StreamReader(file);
+                }
+                
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
@@ -42,7 +52,7 @@ namespace Country_Guesser.Model
                 MessageBox.Show(ex.Message);
 
             }
-            results = results.OrderByDescending(r => r.Score).ToList();
+            results = results.OrderByDescending(r => int.Parse(r.Score)).ToList();
             return results;
         }
     }
