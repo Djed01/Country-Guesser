@@ -21,9 +21,11 @@ namespace Country_Guesser
     public partial class ResultWindow : Window
     {
         private string username;
+        private string difficulty;
         public ResultWindow(int correctAnswers,String username,int totalScore,String difficulty)
         {
             this.username = username;
+            this.difficulty = difficulty;
             InitializeComponent();
             ResultsDataGrid.ItemsSource = Result.LoadResults(difficulty);
             ScoreLabel.Content = "Vas skor je: " + totalScore;
@@ -32,7 +34,14 @@ namespace Country_Guesser
 
         private void PlayAgainClick(object sender, RoutedEventArgs e)
         {
-            new MainWindow(username,"normal").Show();
+            if (difficulty == "Normal")
+            {
+                new MainWindow(username, "Normal").Show();
+            }
+            else
+            {
+                new MainWindow(username, "Hard").Show();
+            }
             this.Close();
         }
 

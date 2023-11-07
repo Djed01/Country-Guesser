@@ -159,8 +159,10 @@ namespace Country_Guesser
                         timer.Stop();
                         SaveResult();
                         progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
+                        
                         new ResultWindow(correctAnswers, username,totalScore, difficulty).Show();
                         this.Close();
+
                     }
                     else
                     {
