@@ -28,10 +28,10 @@ namespace Country_Guesser
         {
             if (string.IsNullOrEmpty(UsernameTextBox.Text))
             {
-                MessageBox.Show("You must enter the name.", "Try again", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Morate unijeti ime.", "Pokušaj ponovo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (NormalRadioButton.IsChecked == false && HardRadioButton.IsChecked == false) {
-                MessageBox.Show("You must chose the dificulty.", "Try again", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Morate izabrati težinu.", "Pokušaj ponovo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

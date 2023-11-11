@@ -28,7 +28,7 @@ namespace Country_Guesser
             this.difficulty = difficulty;
             InitializeComponent();
             ResultsDataGrid.ItemsSource = Result.LoadResults(difficulty);
-            ScoreLabel.Content = "Vas skor je: " + totalScore;
+            ScoreLabel.Content = "Vaš skor je: " + totalScore;
             AnswrsLabel.Content = correctAnswers + "/10 Pitanja";
         }
 

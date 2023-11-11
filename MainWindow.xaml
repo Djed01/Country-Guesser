@@ -26,7 +26,7 @@
                 <Grid>
                     <Rectangle Width="650" Height="50" StrokeThickness="5" Stroke="#ECEFF4" Grid.Row="0" Grid.Column="0" Margin="0 5 0 0"
                 Fill="#A3BE8C" RadiusX="10" RadiusY="10" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                    <Label Content="Pogodi zemlju sa slike"  FontWeight="Bold" Foreground="#2E3440" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label Content="Pogodi oblik države sa slike"  FontWeight="Bold" Foreground="#2E3440" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
         </StackPanel>
@@ -39,16 +39,16 @@
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="button1" Click="AnswerButton_Click" Width="150" Height="40" Margin="0 0 30 0" Background="#8FBCBB"/>
-                <Button x:Name="button2" Click="AnswerButton_Click" Width="150" Height="40" Margin="30 0 0 0" Background="#8FBCBB"/>
+                <Button x:Name="button1" FontSize="16" FontWeight="Bold" Click="AnswerButton_Click" Width="200" Height="50" Margin="0 0 30 0" Background="#8FBCBB"/>
+                <Button x:Name="button2" FontSize="16" FontWeight="Bold" Click="AnswerButton_Click" Width="200" Height="50" Margin="30 0 0 0" Background="#8FBCBB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 0">
-                <Button x:Name="button3" Click="AnswerButton_Click" Width="150" Height="40" Margin="0 0 30 0"  Background="#8FBCBB"/>
-                <Button x:Name="button4" Click="AnswerButton_Click" Width="150" Height="40" Margin="30 0 0 0"  Background="#8FBCBB"/>
+                <Button x:Name="button3" FontSize="16" FontWeight="Bold" Click="AnswerButton_Click" Width="200" Height="50" Margin="0 0 30 0"  Background="#8FBCBB"/>
+                <Button x:Name="button4" FontSize="16" FontWeight="Bold" Click="AnswerButton_Click" Width="200" Height="50" Margin="30 0 0 0"  Background="#8FBCBB"/>
             </StackPanel>
         </StackPanel>
 
         <ProgressBar x:Name="progressBar" Grid.Row="3"  Width="600" Height="30"
-                     Background="#ECEFF4" Foreground="CadetBlue" Minimum="0" Maximum="100" Margin="0 0 0 10"/>
+                     Background="#ECEFF4" Foreground="CadetBlue" Minimum="0" Maximum="100" Margin="0 0 0 5"/>
     </Grid>
 </Window>

@@ -1,20 +1,20 @@
-/Images/austria.png#Austrija#Francuska#Italija#Madjarska#Austrija
+﻿/Images/austria.png#Austrija#Francuska#Italija#Mađarska#Austrija
 /images/bosnia.png#Bosna i Hercegovina#Italija#Makedonija#Italija#Bosna i Hercegovina
-/images/croatia.png#Bosna i Hercegovina#Italija#Svajcarska#Hrvatska#Hrvatska
-/images/czech.png#Srbija#Francuska#Ceska#Italija#Ceska
-/images/french.png#Sribija#Francuska#Italija#Italija#Francuska
-/images/germany.png#Poljska#Njemacka#Irska#San Marino#Njemacka
-/images/greatbritain.png#Ceska#San Marino#Velika Britanija#Spanija#Velika Britanija
-/images/greece.png#Grcka#Francuska#Svajcarska#Makedonija#Grcka
-/images/hungary.png#Makedonija#Madjarska#Spania#Poljska#Madjarska
+/images/croatia.png#Bosna i Hercegovina#Italija#Švajcarska#Hrvatska#Hrvatska
+/images/czech.png#Srbija#Francuska#Češka#Italija#Češka
+/images/french.png#Srbija#Francuska#Italija#Italija#Francuska
+/images/germany.png#Poljska#Njemačka#Irska#San Marino#Njemačka
+/images/greatbritain.png#Češka#San Marino#Velika Britanija#Španija#Velika Britanija
+/images/greece.png#Grčka#Francuska#Švajcarska#Makedonija#Grčka
+/images/hungary.png#Makedonija#Mađarska#Španija#Poljska#Mađarska
 /images/ireland.png#Bosna i Hercegovina#Holandija#Irska#Italija#Irska
-/images/italy.png#Sribija#Francuska#Italija#Poljska#Italija
-/images/macedonia.png#Makedonija#Poljska#Rusija#Madjarska#Makedonija
-/images/montenegro.png#Sribija#Cna Gora#San Marino#Svajcarska#Crna Gora
-/images/netherlands.png#Holandija#Poljska#Spanija#Ceska#Holandija
-/images/poland.png#Grcka#Makedonija#Irska#Poljska#Poljska
-/images/russia.png#Svajcarska#Francuska#Irska#Rusija#Rusija
-/images/sanmarino.png#Makedonija#Spanija#San Marino#Madjarska#San Marino
+/images/italy.png#Srbija#Francuska#Italija#Poljska#Italija
+/images/macedonia.png#Makedonija#Poljska#Rusija#Mađarska#Makedonija
+/images/montenegro.png#Srbija#Crna Gora#San Marino#Švajcarska#Crna Gora
+/images/netherlands.png#Holandija#Poljska#Španija#Češka#Holandija
+/images/poland.png#Grčka#Makedonija#Irska#Poljska#Poljska
+/images/russia.png#Švajcarska#Francuska#Irska#Rusija#Rusija
+/images/sanmarino.png#Makedonija#Španija#San Marino#Mađarska#San Marino
 /images/serbia.png#Srbija#Francuska#Austrija#Velika Britanija#Srbija
-/images/spain.png#Holandija#Francuska#Spanija#Italija#Spanija
-/images/switzerland.png#Poljska#Francuska#San Marino#Svajcarska#Svajcarska
+/images/spain.png#Holandija#Francuska#Španija#Italija#Španija
+/images/switzerland.png#Poljska#Francuska#San Marino#Švajcarska#Švajcarska

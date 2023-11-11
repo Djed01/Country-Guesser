@@ -85,24 +85,55 @@ namespace Country_Guesser
         private void Timer_Tick(object sender, EventArgs e)
         {
             progressBar.Value = currentTimerValue;
-            currentTimerValue -= 20;
+
+            if (difficulty == "Normal")
+            {
+                currentTimerValue -= 10;
+            }
+            else
+            {
+                currentTimerValue -= 20;
+            }
+
             if (currentTimerValue < 0)
             {
                 timer.Stop();
-                if (numOfQuestions == questions.Count)
+                foreach (Button button in new List<Button> { button1, button2, button3, button4 })
                 {
-                    button1.IsEnabled = false;
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    timer.Stop();
-                    progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
-                    // SaveResult();
-                    new ResultWindow(correctAnswers, username,totalScore, difficulty).Show();
+                    string buttonText = button.Content.ToString();
+                    if (buttonText == currentPicture.Answer)
+                    {
+                        button.Background = new SolidColorBrush(Color.FromRgb(163, 190, 140));
+                    }
                 }
-                else
+
+                Task.Delay(2000).ContinueWith(_ =>
                 {
-                    LoadQuestion();
-                }
+                    // Restore button colors
+                    Dispatcher.Invoke(() =>
+                    {
+
+                        foreach (Button button in new List<Button> { button1, button2, button3, button4 })
+                        {
+                            button.Background = new SolidColorBrush(buttonColor);
+                        }
+
+                        if (numOfQuestions == questions.Count)
+                        {
+                            timer.Stop();
+                            SaveResult();
+                            progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
+
+                            new ResultWindow(correctAnswers, username, totalScore, difficulty).Show();
+                            this.Close();
+
+                        }
+                        else
+                        {
+                            LoadQuestion();
+                        }
+                    });
+                    });
             }
         }
 
@@ -180,16 +211,42 @@ namespace Country_Guesser
             string filePath;
             if (difficulty == "Normal")
             {
-                 filePath = "../../../Resources/resultsNormal.txt"; // Path to the results file
+                filePath = "../../../Resources/resultsNormal.txt"; // Path to the normal mode results file
             }
             else
             {
-                 filePath = "../../../Resources/resultsHard.txt"; // Path to the results file
+                filePath = "../../../Resources/resultsHard.txt"; // Path to the hard mode results file
             }
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+
+            string[] lines = File.ReadAllLines(filePath);
+
+            bool userExists = false;
+
+            for (int i = 0; i < lines.Length; i++)
             {
-                writer.WriteLine(username + "#" + totalScore);
+                string[] parts = lines[i].Split('#');
+                if (parts.Length == 2 && parts[0] == username)
+                {
+                    // Update the score for the existing user
+                    int existingScore;
+                    if (int.TryParse(parts[1], out existingScore))
+                    {
+                        int newScore = totalScore;
+                        lines[i] = username + "#" + newScore;
+                        userExists = true;
+                        break;
+                    }
+                }
             }
+
+            if (!userExists)
+            {
+                // Add a new entry for the user
+                lines = lines.Append(username + "#" + totalScore).ToArray();
+            }
+
+            File.WriteAllLines(filePath, lines);
         }
+
     }
 }

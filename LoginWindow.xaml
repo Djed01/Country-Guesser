@@ -11,7 +11,7 @@
             <Grid Margin="0 0 0 50">
                 <Rectangle Width="330" Height="50" StrokeThickness="5" Stroke="#ECEFF4" Grid.Row="0" Grid.Column="0" Margin="0 5 0 0"
                        Fill="#A3BE8C" RadiusX="10" RadiusY="10" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                <Label Content="Country Guesser"  FontWeight="Bold" Foreground="#2E3440" Grid.Column="0" FontSize="30"
+                <Label Content="Pogodi državu"  FontWeight="Bold" Foreground="#2E3440" Grid.Column="0" FontSize="30"
                         Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" />
             </Grid>
 
@@ -19,11 +19,12 @@
                 <Label Content="Unesite ime:" FontSize="30" Foreground="#ECEFF4"></Label>
                 <TextBox x:Name="UsernameTextBox" Width="200" FontSize="20" Height="50"></TextBox>
             </StackPanel>
+            <Label Content="Izaberite težinu:" HorizontalAlignment="Center" FontSize="30" Foreground="#ECEFF4"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
-                <RadioButton x:Name="NormalRadioButton" Content="Normal" FontSize="20" Foreground="#ECEFF4" Margin="0 0 20 0"/>
-                <RadioButton x:Name="HardRadioButton" Content="Hard" FontSize=" 20" Foreground="#ECEFF4" Margin="20 0 0 0"/>
+                <RadioButton x:Name="NormalRadioButton" Content="Normalno" FontSize="20" Foreground="#ECEFF4" Margin="0 0 20 0"/>
+                <RadioButton x:Name="HardRadioButton" Content="Teško" FontSize=" 20" Foreground="#ECEFF4" Margin="20 0 0 0"/>
             </StackPanel>
-            <Button Click="Button_Click" Width="200" Content="Zapocni igru" FontSize="16" FontWeight="Bold" Style="{StaticResource RoundButton}" Background="#EBCB8B" BorderBrush="#BF616A" BorderThickness="3" Height="60" Margin="0 20 0 0"/>
+            <Button Click="Button_Click" Width="200" Content="Započni igru" FontSize="16" FontWeight="Bold" Style="{StaticResource RoundButton}" Background="#EBCB8B" BorderBrush="#BF616A" BorderThickness="3" Height="60" Margin="0 20 0 0"/>
         </StackPanel>
     </Grid>
 </Window>
