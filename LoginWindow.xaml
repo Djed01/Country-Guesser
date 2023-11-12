@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Country_Guesser"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="500" Width="400" Background="#434C5E">
+        Title="Pogodi državu" Height="500" Width="400" Background="#434C5E">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid Margin="0 0 0 50">

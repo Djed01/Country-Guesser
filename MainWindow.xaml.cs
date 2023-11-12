@@ -150,7 +150,7 @@ namespace Country_Guesser
             int timeRemaining = currentTimerValue; // Time remaining when the answer was given
             int timePenalty = 10 - (timeRemaining / 10); // Deduct points based on time taken
 
-            int questionScore = isCorrect ? 10 + timePenalty : 0; // Base score 10 for correct, deduct time penalty
+            int questionScore = isCorrect ? 20 - timePenalty : 0; // Base score 10 for correct, deduct time penalty
             correctAnswers += isCorrect ? 1 : 0; // Increment correct answer count for correct answers
             totalScore += questionScore; // Update the total score
 
