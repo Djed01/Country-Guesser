@@ -2,7 +2,7 @@
 /images/bosnia.png#Bosna i Hercegovina#Italija#Makedonija#Italija#Bosna i Hercegovina
 /images/croatia.png#Bosna i Hercegovina#Italija#Švajcarska#Hrvatska#Hrvatska
 /images/czech.png#Srbija#Francuska#Češka#Italija#Češka
-/images/french.png#Srbija#Francuska#Italija#Italija#Francuska
+/images/french.png#Srbija#Francuska#Italija#San Marino#Francuska
 /images/germany.png#Poljska#Njemačka#Irska#San Marino#Njemačka
 /images/greatbritain.png#Češka#San Marino#Velika Britanija#Španija#Velika Britanija
 /images/greece.png#Grčka#Francuska#Švajcarska#Makedonija#Grčka
