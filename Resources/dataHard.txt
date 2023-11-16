@@ -1,5 +1,5 @@
 ﻿/Images/austria.png#Austrija#Francuska#Italija#Mađarska#Austrija
-/images/bosnia.png#Bosna i Hercegovina#Italija#Makedonija#Italija#Bosna i Hercegovina
+/images/bosnia.png#Bosna i Hercegovina#Italija#Makedonija#Češka#Bosna i Hercegovina
 /images/croatia.png#Bosna i Hercegovina#Italija#Švajcarska#Hrvatska#Hrvatska
 /images/czech.png#Srbija#Francuska#Češka#Italija#Češka
 /images/french.png#Srbija#Francuska#Italija#San Marino#Francuska

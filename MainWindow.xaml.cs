@@ -35,6 +35,7 @@ namespace Country_Guesser
         private int currentTimerValue;
         private Question? currentPicture;
         private readonly List<Question> questions;
+        private bool isWaiting = false;
         public MainWindow(String username,String difficulty)
         {
             InitializeComponent();
@@ -139,68 +140,73 @@ namespace Country_Guesser
 
         private void AnswerButton_Click(object sender, RoutedEventArgs e)
         {
-            Button selectedButton = (Button)sender;
-            string selectedAnswer = selectedButton.Content.ToString();
-
-            timer.Stop(); // Stop the timer
-
-            // Check if the selected answer is correct
-            bool isCorrect = selectedAnswer == currentPicture.Answer;
-
-            int timeRemaining = currentTimerValue; // Time remaining when the answer was given
-            int timePenalty = 10 - (timeRemaining / 10); // Deduct points based on time taken
-
-            int questionScore = isCorrect ? 20 - timePenalty : 0; // Base score 10 for correct, deduct time penalty
-            correctAnswers += isCorrect ? 1 : 0; // Increment correct answer count for correct answers
-            totalScore += questionScore; // Update the total score
-
-            if (isCorrect)
+            if (!isWaiting)
             {
-                // If the selected answer is correct, set the selected button to green
-                selectedButton.Background = new SolidColorBrush(Colors.Green);
-            }
-            else
-            {
-                // If the selected answer is incorrect, find the correct answer button and set it to green
-                foreach (Button button in new List<Button> { button1, button2, button3, button4 })
+                isWaiting = true;
+                Button selectedButton = (Button)sender;
+                string selectedAnswer = selectedButton.Content.ToString();
+
+                timer.Stop(); // Stop the timer
+
+                // Check if the selected answer is correct
+                bool isCorrect = selectedAnswer == currentPicture.Answer;
+
+                int timeRemaining = currentTimerValue; // Time remaining when the answer was given
+                int timePenalty = 10 - (timeRemaining / 10); // Deduct points based on time taken
+
+                int questionScore = isCorrect ? 20 - timePenalty : 0; // Base score 10 for correct, deduct time penalty
+                correctAnswers += isCorrect ? 1 : 0; // Increment correct answer count for correct answers
+                totalScore += questionScore; // Update the total score
+
+                if (isCorrect)
                 {
-                    string buttonText = button.Content.ToString();
-                    if (buttonText == currentPicture.Answer)
-                    {
-                        button.Background = new SolidColorBrush(Color.FromRgb(163, 190, 140));
-                    }
+                    // If the selected answer is correct, set the selected button to green
+                    selectedButton.Background = new SolidColorBrush(Colors.Green);
                 }
-
-                // Set the selected incorrect button to red
-                selectedButton.Background = new SolidColorBrush(Color.FromRgb(191, 97, 106));
-            }
-
-            // Delay for 2 seconds before loading the next question
-            Task.Delay(2000).ContinueWith(_ =>
-            {
-                // Restore button colors
-                Dispatcher.Invoke(() =>
+                else
                 {
+                    // If the selected answer is incorrect, find the correct answer button and set it to green
                     foreach (Button button in new List<Button> { button1, button2, button3, button4 })
                     {
-                        button.Background = new SolidColorBrush(buttonColor);
+                        string buttonText = button.Content.ToString();
+                        if (buttonText == currentPicture.Answer)
+                        {
+                            button.Background = new SolidColorBrush(Color.FromRgb(163, 190, 140));
+                        }
                     }
-                    if (numOfQuestions == questions.Count)
-                    {
-                        timer.Stop();
-                        SaveResult();
-                        progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
-                        
-                        new ResultWindow(correctAnswers, username,totalScore, difficulty).Show();
-                        this.Close();
 
-                    }
-                    else
+                    // Set the selected incorrect button to red
+                    selectedButton.Background = new SolidColorBrush(Color.FromRgb(191, 97, 106));
+                }
+
+                // Delay for 2 seconds before loading the next question
+                Task.Delay(2000).ContinueWith(_ =>
+                {
+                    // Restore button colors
+                    Dispatcher.Invoke(() =>
                     {
-                        LoadQuestion();
-                    }
+                        foreach (Button button in new List<Button> { button1, button2, button3, button4 })
+                        {
+                            button.Background = new SolidColorBrush(buttonColor);
+                        }
+                        if (numOfQuestions == questions.Count)
+                        {
+                            timer.Stop();
+                            SaveResult();
+                            progressBar.Foreground = new SolidColorBrush(Color.FromRgb(95, 158, 160));
+
+                            new ResultWindow(correctAnswers, username, totalScore, difficulty).Show();
+                            this.Close();
+
+                        }
+                        else
+                        {
+                            isWaiting = false;
+                            LoadQuestion();
+                        }
+                    });
                 });
-            });
+            }
         }
 
 
